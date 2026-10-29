@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1a1c2c" />
+  <title>TypeRush — Pixel Typing Race</title>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">T</span> TypeRush <span class="brand-3d">PIXEL</span></a>
+      <div class="top-pill"><span class="live-dot"></span> TYPE FASTER · MOVE FURTHER</div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">THE KEYBOARD IS YOUR ENGINE</p>
+          <h1>READY, SET,<br><span>TYPE!</span></h1>
+          <p class="hero-copy">Type accurately, build speed, and ride your way to the finish line.</p>
+        </div>
+        <div class="hero-badge"><span>▣</span><div><strong>Speed meets skill</strong><small>Every correct character counts</small></div></div>
+      </section>
+
+      <section id="racePanel" class="race-panel panel">
+        <div class="section-heading race-heading">
+          <div><p class="eyebrow">THE TRACK</p><h2>Race arena</h2></div>
+          <div class="race-controls"><span class="status-chip">READY</span><button id="startBtn" class="primary-btn">Start race <span>→</span></button></div>
+        </div>
+        <div class="scene-wrap race-arena" aria-label="Pixel art bike race track">
+          <div class="scenery" aria-hidden="true">
+            <div class="layer" id="lyrSky"></div>
+            <div class="layer l-clouds" id="lyrClouds"></div>
+            <div class="layer l-mount" id="lyrMount"></div>
+            <div class="layer l-hills" id="lyrHills"></div>
+            <div class="layer l-rail" id="lyrRail"></div>
+          </div>
+          <div class="game-hud">
+            <span class="hud-pill">RACE 1/1</span><span class="hud-pill">TIME <b id="timerLabel">00:00</b></span>
+            <span class="hud-pill">WPM <b id="hudWpm">0</b></span><span class="hud-pill">ACC <b id="hudAccuracy">100%</b></span>
+          </div>
+          <div class="track-title"><span><i class="live-dot"></i> LIVE RACE</span><span id="distanceLabel">0 / 100 m</span><span id="raceStatus" class="status-chip">READY</span></div>
+          <div class="race-track" id="raceTrack">
+            <div class="finish-gate"><span>FINISH</span><i></i></div>
+            <div id="runnerLanes" class="runner-lanes"></div>
+          </div>
+          <div class="arena-bottom"><span>TYPE CORRECTLY TO PEDAL FASTER!</span><span>START <b>→</b> FINISH</span></div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span class="stat-label">TYPING SPEED</span><div><strong id="wpmValue">0</strong><small>WPM</small></div><div class="stat-track"><i id="wpmBar"></i></div></div>
+          <div class="stat-card"><span class="stat-label">ACCURACY</span><div><strong id="accuracyValue">100</strong><small>%</small></div><div class="stat-track"><i id="accuracyBar"></i></div></div>
+          <div class="stat-card"><span class="stat-label">PROGRESS</span><div><strong id="progressValue">0</strong><small>%</small></div><div class="stat-track"><i id="progressBar"></i></div></div>
+        </div>
+
+        <div class="typing-box">
+          <div class="typing-head"><label for="typingInput">TYPE THE SENTENCE BELOW</label><span id="sentenceCount">SENTENCE 1 / 5</span></div>
+          <p id="sentenceText" class="sentence-text">The quick brown fox jumps over the lazy dog.</p>
+          <textarea id="typingInput" rows="2" placeholder="Click Start race, then type here..." disabled spellcheck="false" autocapitalize="off" autocomplete="off"></textarea>
+          <div class="typing-foot"><span id="typingHint">Press Start race when you are ready.</span><span>Accuracy + speed = race progress</span></div>
+        </div>
+      </section>
+
+      <section id="resultPanel" class="result-panel panel hidden">
+        <div class="result-icon">★</div><p class="eyebrow">RACE COMPLETE</p><h2 id="resultTitle">You finished!</h2>
+        <p id="resultSubtitle" class="muted">Great work. Here's your race summary.</p>
+        <div class="result-stats">
+          <div><span>WPM</span><strong id="resultWpm">0</strong></div>
+          <div><span>ACCURACY</span><strong id="resultAccuracy">100%</strong></div>
+          <div><span>TIME</span><strong id="resultTime">00:00</strong></div>
+        </div>
+        <button id="playAgainBtn" class="primary-btn">Race again ↻</button>
+      </section>
+
+      <footer><span>© TypeRush</span><span>Built for fast fingers and fair play.</span></footer>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
